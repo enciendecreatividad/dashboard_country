@@ -1,1 +1,353 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.c-body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(assets/body.svg);
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*areas*/
+.c-input {
+  grid-area: input;
+}
+
+.c-card-header {
+  grid-area: card-header;
+}
+
+.c-main-2 {
+  grid-area: section;
+}
+
+.c-card-main {
+  grid-area: card-main;
+}
+
+.c-map {
+  grid-area: map;
+}
+
+.c-list {
+  grid-area: list;
+}
+
+.c-footer {
+  grid-area: footer;
+}
+
+/*global variables*/
+
+:root {
+  --color-dark-blue: #100f48;
+  --color-light-blue: #d8f4ff;
+  --color-white: white;
+  --color-gray: #d3d2d8;
+  --color-light-gray: #f8f8f8;
+  --color-magenta: #e63955;
+  --shadow: 0 0 25 -2px rgba(110, 110, 110, 0.26);
+
+  /*main 1 begin*/
+  --main-1-width: 90%;
+  --main-1-columns: repeat(6, 1fr);
+  --main-1-rows: 15% 80% 5%;
+  --main-1-areas:
+    "input input card-header card-header card-header card-header"
+    "section section section section section section"
+    "footer footer footer footer footer footer";
+  --card-direction: row;
+  --card-margin: 0;
+  --card-div-width: 22%;
+  --card-div-height: 70%;
+  --card-div-margin: 0;
+  /*main 1 end*/
+
+  /*main 2 begin*/
+  --main-2-columns: repeat(3, 1fr);
+  --main-2-rows: 20% 80%;
+  --main-2-areas: "card-main card-main card-main"
+    "map map list";
+  --main-2-div-margin: 15px;
+  --main-2-div-p: 1.7rem;
+  --flag-img-width: 5.2rem;
+  --card-main-width: 32%;
+  --card-main-height: 85%;
+  --flag-radius: 10px;
+  /*main 2 end*/
+}
+
+.c-main-1 {
+  width: var(--main-1-width);
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.60);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  display: grid;
+  grid-template-columns: var(--main-1-columns);
+  grid-template-rows: var(--main-1-rows);
+  grid-template-areas: var(--main-1-areas);
+  position: relative;
+}
+
+.c-main-1 .logo {
+  position: absolute;
+  top: 5px;
+  left: 40px;
+}
+
+.c-main-2 {
+  font-size: 16px;
+  background-color: var(--color-white);
+  display: grid;
+  grid-template-columns: var(--main-2-columns);
+  grid-template-rows: var(--main-2-rows);
+  grid-template-areas: var(--main-2-areas);
+  margin: 0 30px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+/*input begin*/
+.c-input {
+  margin: 45px 30px 0 30px;
+}
+
+.c-input input {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  outline: inherit;
+  background-color: var(--color-white);
+  width: 100%;
+  font-size: 20px;
+  padding: 7px 0;
+  text-align: center;
+  border-radius: 50px;
+  color: var(--color-dark-blue);
+}
+
+.c-input input::placeholder {
+  color: var(--color-gray);
+}
+
+/*input end*/
+
+/*card begin*/
+.c-card-header {
+  display: flex;
+  flex-direction: var(--card-direction);
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+
+.c-card-header div {
+  width: var(--card-div-width);
+  height: var(--card-div-height);
+  margin: var(--card-div-margin);
+  border-radius: 15px;
+  background-color: var(--color-white);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-card-header div label {
+  font-size: 17px;
+  color: var(--color-gray);
+  position: absolute;
+  top: 2px;
+  left: 10px;
+}
+
+.c-card-header div p {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-dark-blue);
+}
+
+/*card end*/
+
+/*footer begin*/
+.c-footer {
+  margin: auto;
+}
+
+/*footer end*/
+
+/*section card main begin*/
+.country {
+  background-color: var(--color-magenta);
+}
+
+.population {
+  background-color: var(--color-light-blue);
+}
+
+.flag {
+  background-color: var(--color-dark-blue);
+}
+
+.c-card-main .country,
+.c-card-main .population,
+.c-card-main .flag {
+  width: var(--card-main-width);
+  height: var(--card-main-height);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: var(--card-margin);
+}
+
+.c-card-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: var(--card-direction);
+  margin: var(--card-margin);
+}
+
+.c-card-main div label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 17px;
+  color: var(--color-white);
+}
+
+.c-card-main .population label {
+  color: var(--color-dark-blue);
+}
+
+.country p,
+.population p {
+  font-size: var(--main-2-div-p);
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.population p {
+  color: var(--color-dark-blue);
+}
+
+.flag img {
+  width: var(--flag-img-width);
+  border-radius: var(--flag-radius);
+}
+
+/*section card main end*/
+
+/*map begin*/
+.c-main-2 .c-map {
+  background-color: var(--color-light-gray);
+  margin: 0 15px 12px 15px;
+  border-radius: 20px;
+}
+
+/*map end*/
+
+
+/*list begin*/
+.c-main-2 .c-list {
+  background-color: var(--color-light-gray);
+  margin: 0 15px 12px 15px;
+  border-radius: 20px;
+  overflow-y: scroll;
+}
+
+.c-list::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--color-light-gray);
+  border-radius: 10px;
+}
+
+.c-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray);
+  border-radius: 10px;
+}
+
+.c-list label {
+  color: var(--color-gray);
+  display: block;
+  margin: 5px 0 0 20px;
+}
+
+.c-list ul {
+  list-style: none;
+  margin: 10px 8px;
+  padding: 0;
+}
+
+.c-list ul li {
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
+  border-radius: 10px;
+  margin-bottom: 3px;
+  padding: 3px;
+  text-align: center;
+}
+
+/*list end*/
+
+.c-input .valid-input {
+  border: solid 1.5px var(--color-magenta);
+}
+
+/*responsive*/
+@media screen and (max-width: 1500px) {
+  :root {
+    --main-2-div-p: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .c-main-1 {
+    overflow-y: scroll;
+  }
+
+  :root {
+    /*----------main 1------------*/
+    /*main 1 begin*/
+    --main-1-width: 95%;
+    --main-1-columns: 1fr;
+    --main-1-rows: 100px 250px auto 5px;
+    --main-1-areas:
+      "input"
+      "card-header"
+      "section"
+      "footer";
+    --card-direction: column;
+    --card-margin: 0.25rem;
+    --card-div-width: 90%;
+    --card-div-height: 70%;
+    --card-div-margin: 2px;
+    /*main 1 end*/
+
+
+    /*----------main 2------------*/
+    /*main 2 begin*/
+    --main-2-columns: 1fr;
+    --main-2-rows: 200px 200px 300px;
+    --main-2-areas: "card-main"
+                    "map"
+                    "list";
+    --main-2-div-margin: 6px;
+    --main-2-div-p: 1rem;
+    --flag-img-width: 3.2rem;
+    --card-main-width: 95%;
+    --card-main-height: 70%;
+    --flag-radius: 5px;
+    /*main 2 end*/
+  }
+}

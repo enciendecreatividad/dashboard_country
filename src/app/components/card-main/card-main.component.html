@@ -1,0 +1,5 @@
+<div *ngFor="let item of data" [class]="item.title | lowercase">
+  <label>{{ item.title }}</label>
+  <p *ngIf="!item.isImg">{{ item.description }}</p>
+  <img *ngIf="item.isImg" [src]="item.description" alt="">
+</div>
